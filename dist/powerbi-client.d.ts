@@ -1,4 +1,4 @@
-// powerbi-client v2.18.0
+// powerbi-client v2.18.1
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 declare module "util" {

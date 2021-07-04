@@ -446,6 +446,9 @@ export abstract class Embed {
    * @returns {Promise<void>}
    */
   async setAccessToken(accessToken: string): Promise<void> {
+    if (!accessToken) {
+      throw new Error("Access token cannot be empty");
+    }
     let embedType = this.config.type;
     embedType = (embedType === 'create' || embedType === 'visual' || embedType === 'qna') ? 'report' : embedType;
     try {

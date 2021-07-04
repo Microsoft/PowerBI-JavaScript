@@ -1,4 +1,4 @@
-// powerbi-client v2.18.0
+// powerbi-client v2.18.1
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -6388,7 +6388,7 @@ exports.BookmarksManager = BookmarksManager;
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @ignore */ /** */
 var config = {
-    version: '2.18.0',
+    version: '2.18.1',
     type: 'js'
 };
 exports.default = config;
@@ -7075,6 +7075,9 @@ var Embed = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (!accessToken) {
+                            throw new Error("Access token cannot be empty");
+                        }
                         embedType = this.config.type;
                         embedType = (embedType === 'create' || embedType === 'visual' || embedType === 'qna') ? 'report' : embedType;
                         _a.label = 1;
