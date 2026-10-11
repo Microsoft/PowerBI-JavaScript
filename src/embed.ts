@@ -752,6 +752,17 @@ export abstract class Embed {
       iframeContent.setAttribute("src", embedUrl);
       iframeContent.setAttribute("scrolling", "no");
       iframeContent.setAttribute("allowfullscreen", "true");
+
+      // Sandbox flags and the permissions-policy container are snapshotted when the frame is
+      // inserted, so these must be set before appendChild to affect the document that loads.
+      if (this.config.iframeAllow) {
+        iframeContent.setAttribute("allow", this.config.iframeAllow);
+      }
+
+      if (this.config.iframeSandbox) {
+        iframeContent.setAttribute("sandbox", this.config.iframeSandbox);
+      }
+
       const node = this.element;
       while (node.firstChild) {
         node.removeChild(node.firstChild);
